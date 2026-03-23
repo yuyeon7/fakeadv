@@ -1,1 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>랜딩 페이지 튜토리얼</title>
 
+<style>
+:root {
+  --bg: #ffffff;
+  --text: #111;
+  --sub: #666;
+  --line: #e5e5e5;
+  --accent: #0071e3;
+}
+
+.dark {
+  --bg: #111;
+  --text: #f5f5f5;
+  --sub: #aaa;
+  --line: #333;
+  --accent: #2997ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Noto Sans KR", sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* HEADER */
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 40px;
+  z-index: 100;
+}
+
+.dark header {
+  background: rgba(0,0,0,0.6);
+}
+
+.logo {
+  font-weight: 600;
+}
+
+.controls button {
+  margin-left: 10px;
+  border: 1px solid var(--line);
+  background: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+/* SECTION */
+section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 100px 20px;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding-top: 160px;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  color: var(--sub);
+}
+
+/* STEP */
+.step {
+  border-top: 1px solid var(--line);
+  padding: 50px 0;
+}
+
+.step h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.step p {
+  color: var(--sub);
+}
+
+.prompt {
+  background: #f5f5f7;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.dark .prompt {
+  background: #1c1c1e;
+}
+
+/* VIDEO */
+.video-section video {
+  width: 100%;
+  border-radius: 14px;
+  margin-top: 30px;
+  transform: scale(0.96);
+  transition: all 0.8s ease;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--sub);
+  border-top: 1px solid var(--line);
+}
+
+/* ANIMATION BASE */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* stagger */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Landing Tutorial</div>
+  <div class="controls">
+    <button onclick="toggleLang()">EN/KR</button>
+    <button onclick="toggleMode()">🌙</button>
+  </div>
+</header>
+
+<section class="hero fade-up">
+  <h1 data-ko="랜딩 페이지 제작 튜토리얼"
+      data-en="Landing Page Tutorial">
+      랜딩 페이지 제작 튜토리얼
+  </h1>
+  <p data-ko="아래 단계를 따라하면 누구나 깔끔한 랜딩 페이지를 만들 수 있습니다."
+     data-en="Follow these steps to build a clean landing page.">
+     아래 단계를 따라하면 누구나 깔끔한 랜딩 페이지를 만들 수 있습니다.
+  </p>
+</section>
+
+<section>
+
+  <div class="step fade-up">
+    <h2 data-ko="Step 1. 구조 설계"
+        data-en="Step 1. Structure">Step 1. 구조 설계</h2>
+    <p data-ko="페이지를 히어로 / 튜토리얼 / 영상으로 나눕니다."
+       data-en="Divide page into sections."></p>
+    <div class="prompt">"심플한 랜딩 페이지 구조를 만들어줘"</div>
+  </div>
+
+  <div class="step fade-up">
+    <h2 data-ko="Step 2. 디자인 적용"
+        data-en="Step 2. Design">Step 2. 디자인 적용</h2>
+    <p data-ko="미니멀하고 여백 중심 디자인을 적용합니다."
+       data-en="Apply minimal design."></p>
+    <div class="prompt">"애플 스타일 UI로 만들어줘"</div>
+  </div>
+
+  <div class="step fade-up">
+    <h2 data-ko="Step 3. 기능 추가"
+        data-en="Step 3. Features">Step 3. 기능 추가</h2>
+    <p data-ko="다크모드와 언어 전환을 추가합니다."
+       data-en="Add dark mode and language toggle."></p>
+  </div>
+
+</section>
+
+<section class="video-section">
+
+  <h2 class="fade-up"
+      data-ko="영상 예시"
+      data-en="Video Examples">
+      영상 예시
+  </h2>
+
+  <video class="fade-up delay-1" controls>
+    <source src="https://raw.githubusercontent.com/yuyeon7/fakeadv/main/Asset/%E1%84%89%E1%85%B5%E1%86%AF%E1%84%89%E1%85%B3%E1%86%B8.MP4">
+  </video>
+
+  <video class="fade-up delay-2" controls>
+    <source src="https://raw.githubusercontent.com/yuyeon7/fakeadv/main/Asset/zoom_out._202603231408.mp4">
+  </video>
+
+  <video class="fade-up delay-3" controls>
+    <source src="https://raw.githubusercontent.com/yuyeon7/fakeadv/main/Asset/Eyewear_advertisement_video_202603231352.mp4">
+  </video>
+
+  <video class="fade-up delay-4" controls>
+    <source src="https://raw.githubusercontent.com/yuyeon7/fakeadv/main/Asset/Camera_panning_around_202603231409.mp4">
+  </video>
+
+</section>
+
+<footer class="fade-up">
+  © 2026 Landing Tutorial
+</footer>
+
+<script>
+/* 언어 전환 */
+let isKorean = true;
+function toggleLang() {
+  isKorean = !isKorean;
+  document.querySelectorAll("[data-ko]").forEach(el => {
+    el.innerText = isKorean ? el.dataset.ko : el.dataset.en;
+  });
+}
+
+/* 다크모드 */
+function toggleMode() {
+  document.body.classList.toggle("dark");
+}
+
+/* 스크롤 애니메이션 */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+}, {
+  threshold: 0.15
+});
+
+document.querySelectorAll(".fade-up").forEach(el => {
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>
